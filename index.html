@@ -79,8 +79,8 @@
 </head>
 <body>
   <main class="hero">
-    <h1>Days Since <strong>BLUE JAYS</strong> Won the World Series</h1>
-    <p class="sub">Counting since <strong>Nov 4, 2009</strong> (Game 6 vs Phillies, final out in the Bronx)</p>
+    <h1>Days Since New York <strong>BLUE JAYS</strong> Won the World Series</h1>
+    <p class="sub">Counting since <strong>Oct 24, 1992</strong> (Game 6 vs Braves)</p>
 
     <section class="timer">
       <div class="tile"><div id="days" class="num">0</div><div class="label">Days</div></div>
@@ -101,7 +101,8 @@
   </main>
 
   <script>
-    const REFERENCE_ISO='2009-11-05T04:49:00Z';
+    /* TIMER */
+    const REFERENCE_ISO='1992-10-24T00:00:00Z';  // ✅ Updated date
     const start=new Date(REFERENCE_ISO).getTime();
     const el={d:days,h:hours,m:minutes,s:seconds};
     function pad(n){return String(n).padStart(2,'0')}
@@ -111,6 +112,7 @@
     function tick(){const now=Date.now();let dsec=Math.max(0,((now-start)/1000)|0);const d=(dsec/86400)|0;dsec-=d*86400;const h=(dsec/3600)|0;dsec-=h*3600;const m=(dsec/60)|0;dsec-=m*60;const s=dsec;upd(el.d,commas(d),'d');upd(el.h,pad(h),'h');upd(el.m,pad(m),'m');upd(el.s,pad(s),'s')}
     tick();setInterval(tick,1000);
 
+    /* PARTY BUTTON / SONG */
     const partyBtn=document.getElementById('partyBtn');
     const partySong=document.getElementById('partySong');
     let playing=false;
@@ -160,4 +162,3 @@
   </script>
 </body>
 </html>
-
